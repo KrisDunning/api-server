@@ -6,7 +6,7 @@ const errorHandler = require('./error-handlers/500');
 //const logger = require('./middleware/logger');
 //const validator = require('./middleware/validator');
 const foodRouter= require('./routes/food');
-
+const clothesRouter= require('./routes/clothes');
 
 const PORT = process.env.PORT || 3002;
 
@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 3002;
 const app = express();
 app.use(express.json());
 app.use(foodRouter);
+app.use(clothesRouter);
 //app.use(logger);
 
 app.get('/', (req, res, next) => {

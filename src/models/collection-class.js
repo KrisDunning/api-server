@@ -1,6 +1,5 @@
 'use strict';
 
-const { CommandCompleteMessage } = require("pg-protocol/dist/messages");
 
 class ModelInterface{
   constructor(model){

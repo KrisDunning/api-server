@@ -31,6 +31,7 @@ router.put('/food/:id', async( req,res,next) => {
 
 router.delete('./food/:id', async (req,res,next) => {
   let {id}=req.params;
+  console.log("DELETING BY ID", id);
   await foodInterface.destroy(id);
   res.status(200).send('Food Deleted');
 });

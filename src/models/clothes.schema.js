@@ -7,7 +7,7 @@ module.exports=(sequelizeDatabase, DataTypes) => {
       allowNull:false,
     },
     color:{
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull:false,
     },
   });

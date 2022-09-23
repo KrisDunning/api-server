@@ -1,8 +1,9 @@
 'use strict'
 
 const {Sequelize, DataTypes}= require('sequelize');
-
 const foodSchema = require('./food.schema');
+const clothesSchema= require('./clothes.schema');
+const ModelInterface = require('./collection-class');
 
 
 //if using .env file
@@ -21,7 +22,12 @@ const sequelizeDatabase= new Sequelize(DATABASE_URL);
 
 //create food model with our schema
 const FoodModel = foodSchema(sequelizeDatabase, DataTypes);
+const ClothesModel = clothesSchema(sequelizeDatabase, DataTypes);
 
 
 
-module.exports = {sequelizeDatabase, FoodModel};
+
+module.exports = {
+  sequelizeDatabase, foodInterface : new ModelInterface(FoodModel),
+  clothesInterface: new ModelInterface(ClothesModel),
+};

@@ -4,7 +4,7 @@ const express = require ('express');
 const {clothesInterface} = require('../models');
 const router = express.Router();
 
-router.post('/clothes', async(req,res,next) => {
+router.post('/clothes', async(req,res,send) => {
   let clothes= await clothesInterface.create(req.body);
   res.status(200).send(clothes);
 });
@@ -29,6 +29,7 @@ router.put('/clothes/:id', async(req,res,next) => {
 
 router.delete('./clothes/:id', async(req,res,next) => {
   let {id}=req.params;
+  console.log('DELETING BY ID ', id);
   await clothesInterface.destroy(id);
   res.status(200).send('Clothes destroyed');
 });
